@@ -1,25 +1,12 @@
 /* imports */
-require('dotenv').config()
-const express = require('express')
-const mysql = require('mysql')
-const bcrypt = require('bcrypt')
-const jwt = require('jsonwebtoken')
+import express from 'express'
+import bcrypt from 'bcrypt'
+import jwt from 'jsonwebtoken'
 
-const app = express();
-const port = 3000;
-
-const dbConfig = {
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_DATABASE
-};
+const app = express()
 
 // Config JSON response
 app.use(express.json())
-
-// Models
-const User = require('./src/models/User')
 
 // Open Route - Public Route
 app.get('/users', (req, res) => {
